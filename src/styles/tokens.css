@@ -1,0 +1,11 @@
+﻿:root {
+  --navy: #003264;
+  --navy-dark: #001E46;
+  --gold: #C89646;
+  --gold-light: #DCB464;
+  --slate: #46505A;
+  --bg: #FFFFFF;
+  --bg-soft: #F5F7FA;
+  --font-heading: "Poppins", "Sora", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
