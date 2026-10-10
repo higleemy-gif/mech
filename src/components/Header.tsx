@@ -57,7 +57,7 @@ export function Header() {
           aria-label="iMECH Global home"
         >
           {/* TODO: Replace /imech-global-logo.png with the final header logo asset. */}
-          <img src="/imech-global-logo.png" alt="iMECH Global" className="h-10 w-auto" />
+          <img src="/imech-global-logo.png" alt="iMECH Global" className="h-10 w-auto md:h-16" />
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
