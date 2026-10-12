@@ -44,7 +44,7 @@ export function Approach() {
                 src={row.image}
                 alt={row.alt}
                 loading="lazy"
-                className="aspect-video h-full w-full object-cover"
+                className="aspect-[3/2] h-full w-full object-cover"
               />
             </div>
             <div>
