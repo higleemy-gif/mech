@@ -17,6 +17,15 @@ export default {
         heading: ["var(--font-heading)"],
         body: ["var(--font-body)"],
       },
+      keyframes: {
+        "logo-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        "logo-scroll": "logo-scroll 45s linear infinite",
+      },
     },
   },
   plugins: [],
