@@ -18,4 +18,5 @@ export const CLIENTS: Client[] = [
   { name: "ALPLA", logo: "/clients/alpla.jpeg" },
   { name: "Aizant Drug Research", logo: "/clients/aizant.jpeg" },
   { name: "Sentiss Pharma", logo: "/clients/sentiss.png" },
+  { name: "Lambda", logo: "/clients/lambda.png" },
 ];
