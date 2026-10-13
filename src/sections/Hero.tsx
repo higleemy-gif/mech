@@ -1,9 +1,12 @@
-﻿import { useLeadForm } from "../context/LeadFormContext";
+﻿import { useNavigate } from "react-router-dom";
+import { Briefcase } from "lucide-react";
+import { useLeadForm } from "../context/LeadFormContext";
 import { smoothScrollTo } from "../lib/smoothScroll";
 import { Button } from "../components/Button";
 
 export function Hero() {
   const { requestEnquiry } = useLeadForm();
+  const navigate = useNavigate();
   return (
     <section
       id="hero"
@@ -27,8 +30,16 @@ export function Hero() {
           Integrated HR, Talent and Management solutions that help organizations build the right workforce,
           develop their people, and drive sustainable transformation.
         </p>
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <Button variant="gold" onClick={() => requestEnquiry()}>Request a Consultation</Button>
+          <Button
+            variant="ghost"
+            onClick={() => { navigate("/jobs"); window.scrollTo({ top: 0, behavior: "auto" }); }}
+            className="gap-2"
+          >
+            <Briefcase className="h-5 w-5" aria-hidden="true" />
+            View Open Jobs
+          </Button>
           <Button variant="ghost" onClick={() => smoothScrollTo("services")}>Explore Services</Button>
         </div>
         <p className="mt-4 text-sm text-white/70">

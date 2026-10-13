@@ -1,4 +1,5 @@
-﻿import { smoothScrollTo } from "../lib/smoothScroll";
+﻿import { useNavigate } from "react-router-dom";
+import { goToSection } from "../lib/sectionNav";
 
 const QUICK_LINKS = [
   { label: "Services", targetId: "services" },
@@ -7,6 +8,7 @@ const QUICK_LINKS = [
 ];
 
 export function Footer() {
+  const navigate = useNavigate();
   return (
     <footer role="contentinfo" className="bg-navy text-white/80">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-4">
@@ -22,13 +24,22 @@ export function Footer() {
               <li key={link.targetId}>
                 <button
                   type="button"
-                  onClick={() => smoothScrollTo(link.targetId)}
+                  onClick={() => goToSection(navigate, link.targetId)}
                   className="text-sm text-white/80 hover:text-gold"
                 >
                   {link.label}
                 </button>
               </li>
             ))}
+            <li>
+              <button
+                type="button"
+                onClick={() => { navigate("/jobs"); window.scrollTo({ top: 0, behavior: "auto" }); }}
+                className="text-sm text-white/80 hover:text-gold"
+              >
+                Careers
+              </button>
+            </li>
           </ul>
         </div>
         <div>

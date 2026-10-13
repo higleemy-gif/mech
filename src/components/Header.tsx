@@ -1,6 +1,7 @@
 ﻿import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { smoothScrollTo } from "../lib/smoothScroll";
+import { goToSection } from "../lib/sectionNav";
 import { useLeadForm } from "../context/LeadFormContext";
 import { Button } from "./Button";
 
@@ -21,6 +22,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { requestEnquiry } = useLeadForm();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -40,7 +42,13 @@ export function Header() {
 
   const go = (targetId: string) => {
     setDrawerOpen(false);
-    smoothScrollTo(targetId);
+    goToSection(navigate, targetId);
+  };
+
+  const goToJobs = () => {
+    setDrawerOpen(false);
+    navigate("/jobs");
+    window.scrollTo({ top: 0, behavior: "auto" });
   };
 
   return (
@@ -51,7 +59,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8">
         <a
-          href="#hero"
+          href="/"
           onClick={(e) => { e.preventDefault(); go("hero"); }}
           className="flex items-center"
           aria-label="iMECH Global home"
@@ -71,6 +79,13 @@ export function Header() {
               {link.label}
             </button>
           ))}
+          <button
+            type="button"
+            onClick={goToJobs}
+            className="text-sm font-medium text-navy transition-colors hover:text-gold"
+          >
+            Careers
+          </button>
           <Button variant="gold" onClick={() => requestEnquiry()}>
             Request a Consultation
           </Button>
@@ -121,6 +136,13 @@ export function Header() {
                 {link.label}
               </button>
             ))}
+            <button
+              type="button"
+              onClick={goToJobs}
+              className="rounded px-2 py-3 text-left text-base font-medium text-navy hover:bg-bg-soft"
+            >
+              Careers
+            </button>
             <Button variant="gold" className="mt-4" onClick={() => { setDrawerOpen(false); requestEnquiry(); }}>
               Request a Consultation
             </Button>
